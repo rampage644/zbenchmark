@@ -1,0 +1,16 @@
+[{
+   "exec": { 
+     "path":"swift://~/bench/bench_2", 
+     "args": "/dev/input" 
+   },
+   "file_list": [
+     {
+       "device": "input",
+       "path": "swift://~/input/input/object2.txt"
+     },
+     {
+       "device": "stdout"
+     }
+   ], 
+   "name": "bench_2"
+}]

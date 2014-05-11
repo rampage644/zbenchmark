@@ -1,0 +1,23 @@
+[{
+   "exec": { 
+     "path":"file://python:python", 
+     "args": "get_acc.py"
+   },
+   "file_list": [
+     {
+       "device": "input",
+       "path": "swift://~/input"
+     },
+     {
+       "device": "stdout"
+     },
+     {
+      "device": "python"
+     },
+     {
+      "device": "image",
+      "path": "swift://~/bench/bench.tar"
+     }
+   ], 
+   "name": "bench_3"
+}]
