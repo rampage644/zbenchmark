@@ -19,6 +19,11 @@ except KeyError as e:
 # tls
 thread_data = []
 
+OVERALL_COUNT = int(sys.argv[1]) if len(sys.argv) >= 3 else 100
+THREAD_COUNT = int(sys.argv[2]) if len(sys.argv) >= 3 else 50
+COUNT_PER_THREAD = OVERALL_COUNT / THREAD_COUNT
+
+
 def test(number):
     """Zebra testing
 
@@ -75,10 +80,6 @@ def test_batch(start, count):
 
     thread_data.append(results)
 
-
-OVERALL_COUNT = 100
-THREAD_COUNT = 50
-COUNT_PER_THREAD = OVERALL_COUNT / THREAD_COUNT
 
 threads = []
 for i in range(0, THREAD_COUNT):
