@@ -16,6 +16,8 @@ except KeyError as e:
     print e
     sys.exit(1)
 
+# tls
+thread_data = []
 
 def test(number):
     """Zebra testing
@@ -59,14 +61,20 @@ def test_batch(start, count):
     :param start integer to start with
     :param count times to execute"""
 
+    # putting results to kind of TLS
+    results = []
+
     for i in range(start, start + count + 1):
         try:
             l = timeit.repeat(stmt='test(%d)' % i,
                               setup='from __main__ import test',
                               number=1, repeat=1)
-            print l[0]
+            results.append(l[0])
         except Exception as e:
-            print e
+            print >> sys.stderr, e
+
+    thread_data.append(results)
+
 
 OVERALL_COUNT = 100
 THREAD_COUNT = 50
@@ -81,3 +89,7 @@ for i in range(0, THREAD_COUNT):
 
 for t in threads:
     t.join()
+
+for results in thread_data:
+    for line in results:
+        print line
