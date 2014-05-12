@@ -79,7 +79,8 @@ def test_batch(start, count, func):
     """Running `test` function several times
 
     :param start integer to start with
-    :param count times to execute"""
+    :param count times to execute
+    :param func to execute, it should accept integer as first arg"""
 
     # putting results to kind of TLS
     results = []
