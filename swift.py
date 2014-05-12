@@ -87,8 +87,8 @@ def test_batch(start, count, func):
 
     for i in range(start, start + count):
         try:
-            l = timeit.repeat(stmt=func(i),
-                              setup='from __main__ import %s' % func.name,
+            l = timeit.repeat(stmt='%s(%d)' % (func.__name__, i),
+                              setup='from __main__ import %s' % func.__name__,
                               number=1, repeat=1)
             results.append(l[0])
         except Exception as e:
@@ -100,7 +100,9 @@ def test_batch(start, count, func):
 threads = []
 for i in range(0, THREAD_COUNT):
     t = threading.Thread(target=test_batch,
-                         args=(1 + COUNT_PER_THREAD*i, COUNT_PER_THREAD))
+                         args=(1 + COUNT_PER_THREAD*i,
+                               COUNT_PER_THREAD,
+                               test_post_single_job))
     t.start()
     threads.append(t)
 
