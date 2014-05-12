@@ -96,13 +96,14 @@ def test_batch(start, count, func):
 
     thread_data.append(results)
 
-
+# !!! SET TESTING FUNCTION HERE !!!
+TEST_FUNCTION = test_post_single_job
 threads = []
 for i in range(0, THREAD_COUNT):
     t = threading.Thread(target=test_batch,
                          args=(1 + COUNT_PER_THREAD*i,
                                COUNT_PER_THREAD,
-                               test_post_single_job))
+                               TEST_FUNCTION))
     t.start()
     threads.append(t)
 
