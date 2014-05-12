@@ -12,8 +12,8 @@ try:
     URL = os.environ['ST_AUTH']
     KEY = os.environ['ST_KEY']
     USER = os.environ['ST_USER']
-except KeyError as e:
-    print e
+except Exception, e:
+    print >> sys.stderr, '%s is not set in env!' % e
     sys.exit(1)
 
 # tls
@@ -86,8 +86,8 @@ def test_batch(start, count, func):
 
     for i in range(start, start + count):
         try:
-            l = timeit.repeat(stmt='test_post_single_job(%d)' % i,
-                              setup='from __main__ import test_post_single_job',
+            l = timeit.repeat(stmt=func(i),
+                              setup='from __main__ import %s' % func.name,
                               number=1, repeat=1)
             results.append(l[0])
         except Exception as e:
