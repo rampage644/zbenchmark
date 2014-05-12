@@ -84,7 +84,7 @@ def test_batch(start, count, func):
     # putting results to kind of TLS
     results = []
 
-    for i in range(start, start + count + 1):
+    for i in range(start, start + count):
         try:
             l = timeit.repeat(stmt='test_post_single_job(%d)' % i,
                               setup='from __main__ import test',
