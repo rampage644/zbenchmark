@@ -43,5 +43,6 @@ Analyse is done using IPython Notebook, please see:
 
 1. [First stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/First.ipynb)
 2. [Second stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Second.ipynb)
+3. [Third stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Third.ipynb)
 
 ## TODO
