@@ -24,14 +24,13 @@ THREAD_COUNT = int(sys.argv[2]) if len(sys.argv) >= 3 else 50
 COUNT_PER_THREAD = OVERALL_COUNT / THREAD_COUNT
 
 
-def test_post_single_job(number):
+def test_post_single_job(conn, number):
     """Zebra JSON job POST testing
 
     :param number interger pointing to object to read ('object12.txt')
     Create new connection and post json job: print some object content
     to stdout"""
 
-    from zwiftclient.client import ZwiftConnection as Connection
     data = """[{
 "exec": {
     "path":"swift://~/bench/bench_2",
@@ -49,30 +48,17 @@ def test_post_single_job(number):
 "name": "bench_2"
 }]
 """ % number
-    conn = Connection(authurl=URL,
-                      key=KEY,
-                      user=USER,
-                      retries=1,
-                      insecure=True)
     body, headers = conn.exec_account(
         None, None, data, content_type='application/json',
         content_length=len(data), headers={}, response_dict={})
-    conn.close()
 
 
-def test_head_account(number):
+def test_head_account(conn, number):
     """Zebra simple HEAD account testing
 
     :param number interger pointing to object to read ('object12.txt')
     Create new connection and post json job: print some object content
     to stdout"""
-
-    from zwiftclient.client import ZwiftConnection as Connection
-    conn = Connection(authurl=URL,
-                      key=KEY,
-                      user=USER,
-                      retries=1,
-                      insecure=True)
     conn.head_account()
 
 
