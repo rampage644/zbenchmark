@@ -4,6 +4,7 @@ import os
 import sys
 import threading
 import timeit
+from zwiftclient.client import ZwiftConnection as Connection
 
 
 # require AUTH/URL/KEY as zwift/swift/zpm utils do
@@ -71,10 +72,15 @@ def test_batch(start, count, func):
 
     # putting results to kind of TLS
     results = []
+    conn = Connection(authurl=URL,
+                      key=KEY,
+                      user=USER,
+                      retries=1,
+                      insecure=True)
 
     for i in range(start, start + count):
         try:
-            l = timeit.repeat(stmt='%s(%d)' % (func.__name__, i),
+            l = timeit.repeat(stmt=lambda: func(conn, i),
                               setup='from __main__ import %s' % func.__name__,
                               number=1, repeat=1)
             results.append(l[0])
@@ -82,6 +88,7 @@ def test_batch(start, count, func):
             print >> sys.stderr, e
 
     thread_data.append(results)
+    conn.close()
 
 # !!! SET TESTING FUNCTION HERE !!!
 TEST_FUNCTION = test_head_account
