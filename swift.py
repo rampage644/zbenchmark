@@ -28,6 +28,7 @@ COUNT_PER_THREAD = OVERALL_COUNT / THREAD_COUNT
 def test_post_single_job(conn, number):
     """Zebra JSON job POST testing
 
+    :param conn Zebra connection to use
     :param number interger pointing to object to read ('object12.txt')
     Create new connection and post json job: print some object content
     to stdout"""
@@ -57,9 +58,8 @@ def test_post_single_job(conn, number):
 def test_head_account(conn, number):
     """Zebra simple HEAD account testing
 
-    :param number interger pointing to object to read ('object12.txt')
-    Create new connection and post json job: print some object content
-    to stdout"""
+    :param number interger, not used
+    :param conn Zebra connection to use"""
     conn.head_account()
 
 
