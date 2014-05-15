@@ -94,7 +94,7 @@ def test_batch(start, count, func):
     conn.close()
 
 # !!! SET TESTING FUNCTION HERE !!!
-TEST_FUNCTION = test_head_account
+TEST_FUNCTION = test_post_single_job
 threads = []
 for i in range(0, THREAD_COUNT):
     t = threading.Thread(target=test_batch,
