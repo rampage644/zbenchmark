@@ -77,6 +77,9 @@ def test_batch(start, count, func):
                       user=USER,
                       retries=1,
                       insecure=True)
+    # we're doing it to make Connection class instance open a connection
+    # before we will be actually measure something
+    conn.head_account()
 
     for i in range(start, start + count):
         try:
