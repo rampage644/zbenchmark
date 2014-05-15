@@ -41,8 +41,10 @@ Raw results could be found in `results/` directory. Every file has name like `Mr
 
 Analyse is done using IPython Notebook, please see:
 
-1. [First stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/First.ipynb)
-2. [Second stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Second.ipynb)
-3. [Third stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Third.ipynb)
+1. `POST`s, with SSL connection, varying requests count: [First stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/First.ipynb)
+2. `HEAD`s, with SSL connection, varying requests count: [Second stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Second.ipynb)
+3. `HEAD`s, with SSL connection, varying thread count: [Third stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Third.ipynb)
+4. `HEAD`s, no SSL connection, varying thread count: [Fourth stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Fourth.ipynb)
+5. `POST`s, no SSL connection, varying thread count: [Fifth stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Fifth.ipynb)
 
 ## TODO
