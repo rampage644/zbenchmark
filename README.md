@@ -46,5 +46,6 @@ Analyse is done using IPython Notebook, please see:
 3. `HEAD`s, with SSL connection, varying thread count: [Third stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Third.ipynb)
 4. `HEAD`s, no SSL connection, varying thread count: [Fourth stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Fourth.ipynb)
 5. `POST`s, no SSL connection, varying thread count: [Fifth stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Fifth.ipynb)
+6. 5. `POST`s, no SSL connection, fixed requests count, varying thread count: [Sixth stage](http://nbviewer.ipython.org/github/rampage644/zbenchmark/blob/master/results/Sixth.ipynb)
 
 ## TODO
